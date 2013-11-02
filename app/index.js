@@ -69,10 +69,21 @@ WonnieGenerator.prototype.askFor = function askFor() {
 };
 
 WonnieGenerator.prototype.app = function app() {
-  this.mkdir('assets');
-  this.mkdir('assets/css');
-  this.mkdir('assets/js');
-  this.mkdir('assets/img');
+  this.mkdir(this.basePath);
+  this.mkdir(path.join(this.basePath, 'css'));
+  this.mkdir(path.join(this.basePath, 'js'));
+  this.mkdir(path.join(this.basePath, 'img'));
+
+  this.mkdir(path.join(this.basePath, 'js',  'app'));
+  this.mkdir(path.join(this.basePath, 'js',  'lib'));
+  this.mkdir(path.join(this.basePath, 'js',  'vendor'));
+
+  this.mkdir(path.join(this.basePath, 'css', 'app'));
+  this.mkdir(path.join(this.basePath, 'css', 'lib'));
+  this.mkdir(path.join(this.basePath, 'css', 'vendor'));
+
+  this.copy('js/require_config.js', path.join(this.basePath, 'js', 'require_config.js'));
+  this.copy('js/main.js', path.join(this.basePath, 'js', 'app', 'main.js'));
 };
 
 WonnieGenerator.prototype.gruntfile = function gruntfile() {

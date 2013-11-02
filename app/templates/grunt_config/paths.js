@@ -3,8 +3,8 @@
 var path  = require('path'),
     paths = {};
 
-paths.srcPath  = 'assets';
-paths.destPath = 'public';
+paths.srcPath  = '<%= basePath %>';
+paths.destPath = '<%= buildPath %>';
 
 paths.src = {
   js:  path.join(paths.srcPath, 'js'),

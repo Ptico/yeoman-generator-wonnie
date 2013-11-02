@@ -2,36 +2,37 @@
 
 // To more options see: https://github.com/jrburke/r.js/blob/master/build/example.build.js
 
-// TODO: try amdclean and sourcemaps after this issue will be resolved: https://github.com/gfranko/amdclean/issues/7
-
 var extend  = require('util')._extend,
     paths   = require('./paths'),
     path    = require('path'),
     config  = {},
-    files, options;
+    modules, options;
 
 // !! Place your files here !! //
-files = ['application'];
+//    ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼    //
+modules = ['application'];
 
 // Basic options
 options = {
   baseUrl:        paths.src.js,
   almond:         true,
   optimize:       'uglify2',
-  mainConfigFile: path.join(paths.src.js, 'require_config.js'),
+  mainConfigFile: path.join(paths.src.js, 'require_config.js'), // <- Remove or change requirejs config here
   useStrict:      true,
   preserveLicenseComments: false,
   generateSourceMaps:      true,
   useSourceUrl:            true
 };
 
-files.forEach(function(file) {
+modules.forEach(function(module) {
   var fileConfig = {
-    out: path.join(paths.dest.js, file + '.js'),
-    include: [file]
+    out: path.join(paths.dest.js, module + '.js'),
+    include: [module]
   };
 
-  config[file] = { options: extend(fileConfig, options) };
+  config[module] = { options: extend(fileConfig, options) };
 });
 
 module.exports = config;
+
+// TODO: try amdclean and sourcemaps after this issue will be resolved: https://github.com/gfranko/amdclean/issues/7
