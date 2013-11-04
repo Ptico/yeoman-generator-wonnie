@@ -1,4 +1,3 @@
 requirejs.config({
-  'use strict';
 
 });
