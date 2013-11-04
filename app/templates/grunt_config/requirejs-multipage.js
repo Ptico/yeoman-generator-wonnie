@@ -10,7 +10,7 @@ var extend  = require('util')._extend,
 
 // !! Place your files here !! //
 //    ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼    //
-modules = ['application'];
+modules = ['app/main'];
 
 // Basic options
 options = {
