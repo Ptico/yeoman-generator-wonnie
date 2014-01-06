@@ -21,7 +21,7 @@ config.dev = {
     expand: true,
     cwd:    paths.src.css,
     src:    paths.scssGlob,
-    dest:   paths.tmp.css,
+    dest:   paths.dest.css,
     ext:    '.css'
   }]
 };
@@ -35,7 +35,7 @@ config.dist = {
     expand: true,
     cwd:    paths.src.css,
     src:    paths.scssGlob,
-    dest:   paths.tmp.css,
+    dest:   paths.dest.css,
     ext:    '.css'
   }]
 };

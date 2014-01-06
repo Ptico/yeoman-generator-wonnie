@@ -18,12 +18,6 @@ paths.dest = {
   img: path.join(paths.destPath, 'img')
 };
 
-paths.tmp = {
-  js:  'tmp/assets/js',
-  css: 'tmp/assets/css',
-  img: 'tmp/assets/img'
-};
-
 paths.jsGlob     = '**/*.js';
 paths.cssGlob    = '**/*.css';
 paths.scssGlob   = ['**/*.scss', '!**/_*.scss'];
@@ -41,7 +35,5 @@ paths.dest.cssGlob = path.join(paths.dest.css, paths.cssGlob);
 paths.dest.imgGlob = path.join(paths.dest.img, paths.imgGlob);
 paths.dest.svgGlob = path.join(paths.dest.img, paths.svgGlob);
 paths.dest.imgAllGlob = path.join(paths.dest.img, paths.imgAllGlob);
-
-paths.tmp.cssGlob = path.join(paths.tmp.css, paths.cssGlob);
 
 module.exports = paths;
