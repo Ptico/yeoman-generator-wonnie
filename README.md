@@ -23,11 +23,13 @@ To install generator-wonnie from npm, run:
 $ npm install -g generator-wonnie
 ```
 
-Finally, initiate the generator:
+Initiate the generator:
 
 ```
 $ yo wonnie
 ```
+
+Edit `$grunt_config/project.js` if needed
 
 ## Usage
 
@@ -57,7 +59,7 @@ By default it generates next file structure:
 - - - app/
 - - - lib/
 - - - vendor/
-- .grunt_config/
+- config/grunt
 - Gruntfile.js
 - package.json
 
@@ -76,9 +78,9 @@ Naming:
 
 Currently only AMD supported
 
-By default, only `app/main.js` will be processed. You can add additional files to `.grunt_config/requirejs-multipage.js` to the `modules` array.
+By default, only `app/main.js` will be processed. You can add additional files to `$grunt_config/project.js` to the `modules` array.
 
-File `require_config.js` is required, but you can change this in config.
+File `require_config.js` is required, but you can change this in the project config too.
 
 ## License
 

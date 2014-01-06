@@ -1,16 +1,17 @@
 'use strict';
 
-var paths  = require('./paths'),
-    config = {},
+var project = require('./project'),
+    paths   = require('./paths'),
+    config  = {},
     sassPaths;
 
-sassPaths = [];
+sassPaths = project.css.additionalPaths;
 
-sassPaths.push(paths.src.css);
+sassPaths.unshift(paths.src.css);
 
 config.dev = {
   options: {
-    style:      'expanded',
+    style:       project.css.outputStyle,
     lineNumbers: true,
     bundleExec:  true,
     trace:       true,

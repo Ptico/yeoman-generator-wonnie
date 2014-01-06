@@ -97,6 +97,7 @@ WonnieGenerator.prototype.app = function app() {
 WonnieGenerator.prototype.gruntfile = function gruntfile() {
   this.template('Gruntfile.js');
 
+  this.template('grunt_config/project.js', path.join(this.configPath, 'project.js'));
   this.template('grunt_config/paths.js', path.join(this.configPath, 'paths.js'));
   this.template('grunt_config/autoprefixer.js', path.join(this.configPath, 'autoprefixer.js'));
   this.copy('grunt_config/clean.js', path.join(this.configPath, 'clean.js'));

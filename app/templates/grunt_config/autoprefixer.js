@@ -1,10 +1,11 @@
 'use strict';
 
-var paths  = require('./paths'),
-    config = {};
+var project = require('./project'),
+    paths   = require('./paths'),
+    config  = {};
 
 config.options = {
-  browsers: ['<%= browserSupport %>']
+  browsers: project.css.browsers
 };
 
 config.dev = {

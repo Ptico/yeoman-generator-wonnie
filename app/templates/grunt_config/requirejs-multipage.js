@@ -2,15 +2,12 @@
 
 // To more options see: https://github.com/jrburke/r.js/blob/master/build/example.build.js
 
-var extend  = require('util')._extend,
+var project = require('./project'),
+    extend  = require('util')._extend,
     paths   = require('./paths'),
     path    = require('path'),
     config  = {},
-    modules, options;
-
-// !! Place your files here !! //
-//    ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼    //
-modules = ['app/main'];
+    options;
 
 // Basic options
 options = {
@@ -18,7 +15,7 @@ options = {
   optimize:       'uglify2',
   wrap:           true,
   skipModuleInsertion: true,
-  mainConfigFile: path.join(paths.src.js, 'require_config.js'), // <- Remove or change requirejs config here
+  mainConfigFile: path.join(paths.src.js, project.js.config),
   useStrict:      true,
   onBuildWrite: function (moduleName, path, contents) {
     var amd = module.require('amdclean');
@@ -29,7 +26,7 @@ options = {
   }
 };
 
-modules.forEach(function(module) {
+project.js.modules.forEach(function(module) {
   var fileConfig = {
     out: path.join(paths.dest.js, module + '.js'),
     include: [module]
@@ -39,5 +36,3 @@ modules.forEach(function(module) {
 });
 
 module.exports = config;
-
-// TODO: try amdclean and sourcemaps after this issue will be resolved: https://github.com/gfranko/amdclean/issues/7
