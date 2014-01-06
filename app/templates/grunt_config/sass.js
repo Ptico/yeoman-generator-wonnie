@@ -6,6 +6,8 @@ var paths  = require('./paths'),
 
 sassPaths = [];
 
+sassPaths.push(paths.src.css);
+
 config.dev = {
   options: {
     outputStyle: 'expanded',

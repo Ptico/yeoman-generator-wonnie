@@ -15,13 +15,18 @@ modules = ['app/main'];
 // Basic options
 options = {
   baseUrl:        paths.src.js,
-  almond:         true,
   optimize:       'uglify2',
+  wrap:           true,
+  skipModuleInsertion: true,
   mainConfigFile: path.join(paths.src.js, 'require_config.js'), // <- Remove or change requirejs config here
   useStrict:      true,
-  preserveLicenseComments: false,
-  generateSourceMaps:      true,
-  useSourceUrl:            true
+  onBuildWrite: function (moduleName, path, contents) {
+    var amd = module.require('amdclean');
+    return amd.clean({
+      code: contents,
+      globalObject: true
+    });
+  }
 };
 
 modules.forEach(function(module) {

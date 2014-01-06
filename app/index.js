@@ -52,6 +52,12 @@ WonnieGenerator.prototype.askFor = function askFor() {
     },
     {
       type: 'input',
+      name: 'configPath',
+      message: 'Choose configs destination',
+      default: 'config/grunt'
+    },
+    {
+      type: 'input',
       name: 'buildPath',
       message: 'Choose build destination:',
       default: 'public'
@@ -61,9 +67,10 @@ WonnieGenerator.prototype.askFor = function askFor() {
   this.prompt(prompts, function(props) {
     this.browserSupport = props.browserSupport;
 
-    this.appName   = props.appName;
-    this.basePath  = props.basePath;
-    this.buildPath = props.buildPath;
+    this.appName    = props.appName;
+    this.basePath   = props.basePath;
+    this.configPath = props.configPath;
+    this.buildPath  = props.buildPath;
 
     cb();
   }.bind(this));
@@ -90,19 +97,19 @@ WonnieGenerator.prototype.app = function app() {
 WonnieGenerator.prototype.gruntfile = function gruntfile() {
   this.template('Gruntfile.js');
 
-  this.template('grunt_config/paths.js', '.grunt_config/paths.js');
-  this.template('grunt_config/autoprefixer.js', '.grunt_config/autoprefixer.js');
-  this.copy('grunt_config/clean.js', '.grunt_config/clean.js');
-  this.copy('grunt_config/compress.js', '.grunt_config/compress.js');
-  this.copy('grunt_config/concurrent.js', '.grunt_config/concurrent.js');
-  this.copy('grunt_config/copy.js', '.grunt_config/copy.js');
-  this.copy('grunt_config/csso.js', '.grunt_config/csso.js');
-  this.copy('grunt_config/imagemin.js', '.grunt_config/imagemin.js');
-  this.copy('grunt_config/requirejs-multipage.js', '.grunt_config/requirejs-multipage.js');
-  this.copy('grunt_config/sass-contrib.js', '.grunt_config/sass-contrib.js');
-  this.copy('grunt_config/sass.js', '.grunt_config/sass.js');
-  this.copy('grunt_config/svgmin.js', '.grunt_config/svgmin.js');
-  this.copy('grunt_config/watch.js', '.grunt_config/watch.js');
+  this.template('grunt_config/paths.js', path.join(this.configPath, 'paths.js'));
+  this.template('grunt_config/autoprefixer.js', path.join(this.configPath, 'autoprefixer.js'));
+  this.copy('grunt_config/clean.js', path.join(this.configPath, 'clean.js'));
+  this.copy('grunt_config/compress.js', path.join(this.configPath, 'compress.js'));
+  this.copy('grunt_config/concurrent.js', path.join(this.configPath, 'concurrent.js'));
+  this.copy('grunt_config/copy.js', path.join(this.configPath, 'copy.js'));
+  this.copy('grunt_config/csso.js', path.join(this.configPath, 'csso.js'));
+  this.copy('grunt_config/imagemin.js', path.join(this.configPath, 'imagemin.js'));
+  this.copy('grunt_config/requirejs-multipage.js', path.join(this.configPath, 'requirejs-multipage.js'));
+  this.copy('grunt_config/sass-contrib.js', path.join(this.configPath, 'sass-contrib.js'));
+  this.copy('grunt_config/sass.js', path.join(this.configPath, 'sass.js'));
+  this.copy('grunt_config/svgmin.js', path.join(this.configPath, 'svgmin.js'));
+  this.copy('grunt_config/watch.js', path.join(this.configPath, 'watch.js'));
 };
 
 WonnieGenerator.prototype.projectfiles = function projectfiles() {

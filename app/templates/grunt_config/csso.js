@@ -9,7 +9,7 @@ module.exports = {
     },
     files: [{
       expand:  true,
-      cwd:     paths.tmp.css,
+      cwd:     paths.dest.css,
       src:     paths.cssGlob,
       dest:    paths.dest.css,
       ext:     '.css' // Don't do min.css

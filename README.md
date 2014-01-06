@@ -1,9 +1,9 @@
 # generator-wonnie
 
-Wonnie is a build stack to replace Rails assets pipeline. What it does?
+Wonnie is an web-application layout generator. Build stack does next:
 
 - Build [scss](http://sass-lang.com/) files, postprocess them with [autoprefixer](https://github.com/ai/autoprefixer) and minify with [CSSO](http://bem.info/tools/csso/)
-- Build AMD javascripts, minify with [UglifyJS](https://github.com/mishoo/UglifyJS2) and make source maps
+- Build AMD javascripts, minify with [UglifyJS](https://github.com/mishoo/UglifyJS2) and [amdclean](https://github.com/gfranko/amdclean)
 - Optimize images with [OptiPNG](http://optipng.sourceforge.net), [jpegtran](http://jpegclub.org/jpegtran/), and [SVGO](https://github.com/svg/svgo).
 - Gzip text assets for nginx
 
