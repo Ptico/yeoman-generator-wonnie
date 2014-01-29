@@ -19,4 +19,18 @@ config.img = {
   dest:  paths.dest.img
 };
 
+config.fonts = {
+  expand: true,
+  cwd:    paths.src.font,
+  src:    paths.fontGlob,
+  dest:   paths.dest.font
+};
+
+config.css = {
+  expand: true,
+  cwd:    paths.src.css,
+  src:    paths.cssGlob,
+  dest:   paths.dest.css
+};
+
 module.exports = config;

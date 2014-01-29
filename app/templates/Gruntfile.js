@@ -55,7 +55,7 @@ module.exports = function(grunt) {
   /* Project configuration. */
   grunt.initConfig(gruntConfig);
 
-  grunt.registerTask('css:dist', ['sass:dist', 'autoprefixer:dist', 'csso:dist']);
+  grunt.registerTask('css:dist', ['sass:dist', 'autoprefixer:dist', 'copy:css', 'csso:dist']);
   grunt.registerTask('js:dist',  ['requirejs']);
   grunt.registerTask('img:dist', ['imagemin:dist', 'svgmin:dist']);
 

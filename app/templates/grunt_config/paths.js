@@ -7,15 +7,17 @@ paths.srcPath  = '<%= basePath %>';
 paths.destPath = '<%= buildPath %>';
 
 paths.src = {
-  js:  path.join(paths.srcPath, 'js'),
-  css: path.join(paths.srcPath, 'css'),
-  img: path.join(paths.srcPath, 'img')
+  js:   path.join(paths.srcPath, 'js'),
+  css:  path.join(paths.srcPath, 'css'),
+  img:  path.join(paths.srcPath, 'img'),
+  font: path.join(paths.srcPath, 'font')
 };
 
 paths.dest = {
-  js:  path.join(paths.destPath, 'js'),
-  css: path.join(paths.destPath, 'css'),
-  img: path.join(paths.destPath, 'img')
+  js:   path.join(paths.destPath, 'js'),
+  css:  path.join(paths.destPath, 'css'),
+  img:  path.join(paths.destPath, 'img'),
+  font: path.join(paths.destPath, 'font')
 };
 
 paths.jsGlob     = '**/*.js';
@@ -24,6 +26,7 @@ paths.scssGlob   = ['**/*.scss', '!**/_*.scss'];
 paths.imgGlob    = '**/*.{gif,jpeg,jpg,png}';
 paths.svgGlob    = '**/*.svg';
 paths.imgAllGlob = '**/*.{gif,jpeg,jpg,png,svg}';
+paths.fontGlob   = '**/*.{otf,ttf,eot,woff,svg}';
 
 paths.src.jsGlob      = path.join(paths.src.js,  paths.jsGlob);
 paths.src.cssGlob     = path.join(paths.src.css, paths.cssGlob);

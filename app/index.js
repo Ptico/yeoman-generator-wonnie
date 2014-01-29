@@ -81,6 +81,7 @@ WonnieGenerator.prototype.app = function app() {
   this.mkdir(path.join(this.basePath, 'css'));
   this.mkdir(path.join(this.basePath, 'js'));
   this.mkdir(path.join(this.basePath, 'img'));
+  this.mkdir(path.join(this.basePath, 'font'));
 
   this.mkdir(path.join(this.basePath, 'js',  'app'));
   this.mkdir(path.join(this.basePath, 'js',  'lib'));
