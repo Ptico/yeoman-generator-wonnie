@@ -6,6 +6,7 @@ config.dist = [
   'css:dist',
   'js:dist',
   'img:dist',
+  'html:dist',
   'copy:fonts'
 ];
 

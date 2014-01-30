@@ -1,6 +1,6 @@
 {
   "name": "generator-wonnie",
-  "version": "0.8.0",
+  "version": "0.9.0-beta.1",
   "description": "A generator for Yeoman",
   "keywords": [
     "yeoman-generator"

@@ -1,7 +1,7 @@
 'use strict';
 
 var path       = require('path'),
-    configPath = path.resolve('<%= configPath %>');
+    configPath = path.resolve('<%= configFolder %>');
 
 module.exports = function(grunt) {
   /* Dependencies */
@@ -16,11 +16,23 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-svgmin');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-mustache-html');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
   var gruntConfig = {};
 
   // Watch for changes
   gruntConfig.watch = require(path.join(configPath, 'watch'));
+
+  // Webserver
+  gruntConfig.connect = require(path.join(configPath, 'connect'));
+
+  // HTML-rendering
+  gruntConfig.mustache_html = require(path.join(configPath, 'mustache-html'));
+
+  // HTML-minifier
+  gruntConfig.htmlmin = require(path.join(configPath, 'htmlmin'));
 
   // Compile stylesheets
   gruntConfig.sass = require(path.join(configPath, 'sass')); // require('configs/sass-contrib');
@@ -55,9 +67,11 @@ module.exports = function(grunt) {
   /* Project configuration. */
   grunt.initConfig(gruntConfig);
 
-  grunt.registerTask('css:dist', ['sass:dist', 'autoprefixer:dist', 'copy:css', 'csso:dist']);
-  grunt.registerTask('js:dist',  ['requirejs']);
-  grunt.registerTask('img:dist', ['imagemin:dist', 'svgmin:dist']);
+  grunt.registerTask('css:dist',  ['sass:dist', 'autoprefixer:dist', 'copy:css', 'csso:dist']);
+  grunt.registerTask('js:dist',   ['requirejs']);
+  grunt.registerTask('img:dist',  ['imagemin:dist', 'svgmin:dist']);
+  grunt.registerTask('html:dist', ['mustache_html:dist', 'htmlmin:dist']);
 
   grunt.registerTask('build', ['clean:all', 'concurrent:dist', 'compress:dist']);
+  grunt.registerTask('serve', ['clean:all', 'connect:dev', 'watch']);
 };

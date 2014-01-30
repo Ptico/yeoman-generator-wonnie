@@ -2,7 +2,7 @@
 
 // To more options see: https://github.com/jrburke/r.js/blob/master/build/example.build.js
 
-var project = require('./project'),
+var project = require('../assets'),
     extend  = require('util')._extend,
     paths   = require('./paths'),
     path    = require('path'),

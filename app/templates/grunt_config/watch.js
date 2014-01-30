@@ -6,9 +6,13 @@ module.exports = {
   options: {
     atBegin: true
   },
-  styles: {
+  scss: {
     files: [paths.src.scssAllGlob],
     tasks: ['sass:dev', 'autoprefixer:dev']
+  },
+  css: {
+    files: [paths.src.cssGlob],
+    tasks: ['copy:css']
   },
   js: {
     files: [paths.src.jsGlob],
@@ -17,5 +21,13 @@ module.exports = {
   img: {
     files: [paths.src.imgAllGlob],
     tasks: ['copy:img']
+  },
+  fonts: {
+    files: [paths.src.fontGlob],
+    tasks: ['copy:fonts']
+  },
+  html: {
+    files: [paths.src.htmlGlob],
+    tasks: ['mustache_html:dev']
   }
 };

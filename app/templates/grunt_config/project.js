@@ -1,6 +1,14 @@
 var project = {};
 
 /*
+ * Server options
+ */
+project.server = {
+  port: 9000,
+  hostname: 'localhost'
+};
+
+/*
  * Javascript config
  */
 project.js = {
@@ -27,6 +35,16 @@ project.css = {
   // Output style for development mode
   // Can be 'nested', 'expanded', 'compact' or 'compressed'
   outputStyle: 'expanded'
+};
+
+/*
+ * HTML templates config
+ */
+project.tmpl = {
+  dev_globals: {
+    development: true
+  },
+  dist_globals: {}
 };
 
 module.exports = project;

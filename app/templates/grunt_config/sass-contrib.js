@@ -1,6 +1,6 @@
 'use strict';
 
-var project = require('./project'),
+var project = require('../assets'),
     paths   = require('./paths'),
     config  = {},
     sassPaths;
